@@ -638,34 +638,7 @@ tonemapping<span class="token punctuation">.</span><span class="token function">
             you must pass the </i><code>requireDirtyRender</code><i> parameter.</i></p>
           </div>
           <example-snippet stamp-to="custom-effects" highlight-as="html">
-            <template>
-<model-viewer camera-controls="" touch-action="pan-y" autoplay="" src="costume_party_style_zoroark.glb" ar="" alt="A 3D model of a Lantern">
-  <effect-composer id="customComposer" msaa="8">
-  </effect-composer>
-  <div class="controls">
-    <label for="scale">Grid Scale</label>
-    <input id="scale" type="range" min="0" max="2" step="0.01" value="1">
-  </div>
-</model-viewer>
-<script type="module">
-  import * as PostProcessing from 'https://cdn.jsdelivr.net/npm/postprocessing@6.30.1/build/postprocessing.esm.js';
-  const customComposer = document.querySelector("effect-composer#customComposer");
 
-
-  const grid = new PostProcessing.GridEffect();
-  const sepia = new PostProcessing.SepiaEffect();
-  // The camera is set automatically when added to the <effect-composer>
-  const noisePass = new PostProcessing.EffectPass(undefined, grid, sepia);
-  customComposer.addPass(noisePass);
-
-
-  customComposer.nextElementSibling.addEventListener('input', (e) => {
-    grid.scale = e.target.value;
-    // Request a render frame, to update
-    customComposer.queueRender();
-  });
-</script>
-            </template>
           <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>model-viewer</span> <span class="token attr-name">camera-controls</span> <span class="token attr-name">touch-action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pan-y<span class="token punctuation">"</span></span> <span class="token attr-name">autoplay</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../../shared-assets/models/RobotExpressive.glb<span class="token punctuation">"</span></span> <span class="token attr-name">ar</span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>A 3D model of a Lantern<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>effect-composer</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>customComposer<span class="token punctuation">"</span></span> <span class="token attr-name">msaa</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>effect-composer</span><span class="token punctuation">&gt;</span></span>
