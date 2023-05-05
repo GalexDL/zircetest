@@ -31,8 +31,154 @@
   <!-- 💁 OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
   <script src="../../node_modules/focus-visible/dist/focus-visible.js" defer=""></script>
 
-  <body>
-    <div class="examples-container">
+
+  <script defer="" src="https://web3dsurvey.com/collector.js"></script>
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-169901325-1', { 'storage': 'none' });
+    ga('set', 'referrer', document.referrer.split('?')[0]);
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async="" src="https://www.google-analytics.com/analytics.js"></script>
+
+
+  <style>
+.controls {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  bottom: 8px;
+  left: 8px;
+}
+
+
+#texture-name,
+#image-name {
+  font-size: 0.8em;
+}
+
+
+button {
+  font-size: 1.3em;
+  margin: 0 0.25em;
+}
+  </style>
+</head>
+<body>
+<div class="examples-page">
+  <div class="sidebar" id="sidenav">
+<div class="home lockup">
+  <a href="../../" class="sidebar-mv inner-home">
+    <div class="icon-button icon-modelviewer-black inner-home"></div>
+    <div class="inner-home darken inner-home-mve"><span class="attribute">&lt;model-viewer-effects&gt;</span></div>
+  </a>
+</div>
+<hr class="sidebar-hr">
+
+
+<div class="flipper">
+  
+<div class="inner-flipper" id="documentation-flipper" onclick="switchPages('examples', '../../docs/mve')">
+  <a class="darken">DOCUMENTATION</a>
+</div>
+<div class="inner-flipper">|</div>
+<div class="inner-flipper" id="examples-flipper">
+  <div class="bolden">EXAMPLES</div>
+</div>
+</div>
+
+
+<div class="categories" id="sidebar-category-container">
+<div class="category">
+  <h3 id="loading-sidebar">
+    <a class="darken" href="../loading" onclick="sidebarClick()">Loading</a>
+  </h3>
+  <div class="subCategory">
+    
+  </div>
+</div>
+<div class="category">
+  <h3 id="augmentedreality-sidebar">
+    <a class="darken" href="../augmentedreality" onclick="sidebarClick()">Augmented Reality</a>
+  </h3>
+  <div class="subCategory">
+    
+  </div>
+</div>
+<div class="category">
+  <h3 id="stagingandcameras-sidebar">
+    <a class="darken" href="../stagingandcameras" onclick="sidebarClick()">Staging &amp; Cameras</a>
+  </h3>
+  <div class="subCategory">
+    
+  </div>
+</div>
+<div class="category">
+  <h3 id="annotations-sidebar">
+    <a class="darken" href="../annotations" onclick="sidebarClick()">Annotations</a>
+  </h3>
+  <div class="subCategory">
+    
+  </div>
+</div>
+<div class="category">
+  <h3 id="lightingandenv-sidebar">
+    <a class="darken" href="../lightingandenv" onclick="sidebarClick()">Lighting &amp; Skybox</a>
+  </h3>
+  <div class="subCategory">
+    
+  </div>
+</div>
+<div class="category">
+  <h3 id="animation-sidebar">
+    <a class="darken" href="../animation" onclick="sidebarClick()">Animation</a>
+  </h3>
+  <div class="subCategory">
+    
+  </div>
+</div>
+<div class="category">
+  <h3 id="scenegraph-sidebar">
+    <a class="darken" href="../scenegraph" onclick="sidebarClick()">Materials &amp; Scene</a>
+  </h3>
+  <div class="subCategory">
+    
+  </div>
+</div>
+<div class="category">
+  <h3 id="active-container-sidebar" class="active">
+    <a class="darken" href="../postprocessing" onclick="sidebarClick()">Post Process Effects</a>
+  </h3>
+  <div class="subCategory">
+    
+<h4 class="subcategory-header active" id="container-setup-sidebar">
+  <a class="darken" href="#setup" onclick="sidebarClick()">Setup Post Processing</a>
+</h4>
+<h4 class="subcategory-header" id="container-effects-sidebar">
+  <a class="darken" href="#effects" onclick="sidebarClick()">The Effects API</a>
+</h4>
+<h4 class="subcategory-header" id="container-colorgrade-sidebar">
+  <a class="darken" href="#colorgrade" onclick="sidebarClick()">Color Grading</a>
+</h4>
+<h4 class="subcategory-header" id="container-selective-effects-sidebar">
+  <a class="darken" href="#selective-effects" onclick="sidebarClick()">Selective Effects</a>
+</h4>
+<h4 class="subcategory-header" id="container-combining-effects-sidebar">
+  <a class="darken" href="#combining-effects" onclick="sidebarClick()">Combining Effects</a>
+</h4>
+<h4 class="subcategory-header" id="container-custom-effects-sidebar">
+  <a class="darken" href="#custom-effects" onclick="sidebarClick()">Custom Effects</a>
+</h4>
+  </div>
+</div></div></div>
+  <div id="toggle">
+<h1 class="tab" onclick="toggleSidebar()">☰</h1>
+</div>
+
+
+  <div class="examples-container">
     <div class="sample">
       <div id="setup" class="demo">
   <script type="noexecute" async="" src="https://ga.jspm.io/npm:es-module-shims@1.7.1/dist/es-module-shims.js"></script>
@@ -82,5 +228,654 @@
   }
 }
 </script>
-</body>
-</html>
+              </template>
+            <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>importmap<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token punctuation">{</span>
+  <span class="token string-property property">"imports"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">"three"</span><span class="token operator">:</span> <span class="token string">"https://cdn.jsdelivr.net/npm/three@^0.152.1/build/three.module.min.js"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></code></pre></example-snippet>
+            <p>Now import the <code>&lt;model-viewer&gt;</code> module version which doesn't package three, and the <code>&lt;model-viewer-effects&gt;</code> addon:</p>
+            <example-snippet stamp-to="setup" highlight-as="html">
+              <template>
+<script type="module-noexecute" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer-module.min.js"></script>
+  
+<script type="module-noexecute" src="https://cdn.jsdelivr.net/npm/@google/model-viewer-effects/dist/model-viewer-effects.min.js"></script>
+              </template>
+            <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer-module.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+  
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/@google/model-viewer-effects/dist/model-viewer-effects.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></code></pre></example-snippet>
+            <p>Setting up post-processing effects is as simple as adding an <code>&lt;effect-composer&gt;</code> component inside your <code>&lt;model-viewer&gt;</code> element.
+              From here, simply add any of the supported effects inside the <code>&lt;effect-composer&gt;</code>.<br>See the
+            <a href="../../docs/mve.html">API Reference</a> for a list of all supported effects.</p>
+          </div>
+          <example-snippet stamp-to="setup" highlight-as="html">
+            <template>
+<!-- Use the <effect-composer> component inside the <model-viewer> element -->
+<model-viewer autoplay="" ar="" camera-controls="" touch-action="pan-y" src="../../shared-assets/models/Horse.glb" alt="A 3D model of a horse galloping.">
+  <effect-composer>
+    <pixelate-effect></pixelate-effect>
+  </effect-composer>
+</model-viewer>
+            </template>
+          <pre><code><span class="token comment">&lt;!-- Use the &lt;effect-composer&gt; component inside the &lt;model-viewer&gt; element --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>model-viewer</span> <span class="token attr-name">autoplay</span> <span class="token attr-name">ar</span> <span class="token attr-name">camera-controls</span> <span class="token attr-name">touch-action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pan-y<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../../shared-assets/models/Horse.glb<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>A 3D model of a horse galloping.<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>effect-composer</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pixelate-effect</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pixelate-effect</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>effect-composer</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>model-viewer</span><span class="token punctuation">&gt;</span></span></code></pre></example-snippet>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="sample">
+      <div id="effects" class="demo">
+<model-viewer id="blendViewer" camera-controls="" touch-action="pan-y" ar="" src="../../shared-assets/models/Astronaut.glb" alt="A 3D model of an astronaut" ar-status="not-presenting">
+  <effect-composer render-mode="quality" msaa="8">
+    <color-grade-effect contrast="0.5" saturation="-1" opacity="1" blend-mode="DEFAULT" tonemapping="ACES_FILMIC" brightness="0" hue="0"></color-grade-effect>
+  </effect-composer>
+  <div class="controls">
+    <label for="opacity">Opacity</label>
+    <input id="opacity" type="range" min="0" max="1" step="0.01" value="1">
+    <label for="blend-mode">Blend Mode:</label>
+    <select id="blend-mode">
+        <option value="default">Default</option>
+        <option value="skip">Skip</option>
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+        <option value="divide">Divide</option>
+        <option value="negation">Negation</option>
+    </select>
+  </div>
+</model-viewer>
+<script type="module">
+const blendViewer = document.querySelector("model-viewer#blendViewer");
+const blendEffect = blendViewer.querySelector('color-grade-effect');
+const opacity = blendViewer.querySelector('#opacity');
+const mode = blendViewer.querySelector('#blend-mode');
+
+
+opacity.addEventListener('input', (e) => blendEffect.opacity = e.target.value);
+mode.addEventListener('change', (e) => blendEffect.blendMode = e.target.value);
+</script>
+            </div>
+      <div class="content">
+        <div class="wrapper">
+          <div class="heading">
+            <h2 class="demo-title">The Effects API</h2>
+            <a href="../../docs/mve#effectcomposer"><h3>Effect Composer</h3></a>
+            <p>The <code>&lt;effect-composer&gt;</code> component has two main properties: <code>render-mode</code> and <code>msaa</code>.<br><br>
+            The default value for <code>renderMode</code> is <code>'performance'</code>. By switching to <code>'quality'</code>, the <code>&lt;effect-composer&gt;</code>
+            will use high-precision linear buffers for rendering, allowing for HDR-like workflows, at a performance cost. <code>renderMode</code> can only be set once,
+            before the Effect Composer instantiates. Updating it after that is not possible.<br>
+            <i>Note: the default 'performance' <code>renderMode</code> is prone to banding in dark scenes, which is especially noticeable with 
+            <code>&lt;bloom-effect&gt;</code>.</i><br><br>
+            <code>msaa</code> uses a performant algorithm for anti-aliasing on WebGL2 enabled browsers. Set this to a factor of 2 to enable - it is disabled by default.<br>
+            <i>Note: <code>msaa</code> may introduce visual artifacts when used with depth-based effects such as <code>&lt;ssao-effect&gt;</code>, in which case
+              it would be preferred to use the <code>&lt;smaa-effect&gt;</code>.</i>
+            </p><br>
+            <a href="../../docs/mve#bloom"><h3>Effects</h3></a>
+            <p>All Effects are reactive components, so all properties can be changed during runtime. 
+            This example demonstrates the <a href="../../docs/mve#blendmodemixin"><code>BlendMode API</code></a>, which allows you to blend effects like you would
+            layers in Photoshop. We use a <a href="../../docs/mve#colorgrade"><code>&lt;color-grade-effect&gt;</code></a>, which allows you to alter the look of your model.
+            </p>
+          </div>
+          <example-snippet stamp-to="effects" highlight-as="html">
+            <template>
+<model-viewer id="blendViewer" camera-controls="" touch-action="pan-y" ar="" src="../../shared-assets/models/Astronaut.glb" alt="A 3D model of an astronaut">
+  <effect-composer render-mode="quality" msaa="8">
+    <color-grade-effect contrast="0.5" saturation="-1" opacity="1" blend-mode="default"></color-grade-effect>
+  </effect-composer>
+  <div class="controls">
+    <label for="opacity">Opacity</label>
+    <input id="opacity" type="range" min="0" max="1" step="0.01" value="1">
+    <label for="blend-mode">Blend Mode:</label>
+    <select id="blend-mode">
+        <option value="default">Default</option>
+        <option value="skip">Skip</option>
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+        <option value="divide">Divide</option>
+        <option value="negation">Negation</option>
+    </select>
+  </div>
+</model-viewer>
+<script type="module">
+const blendViewer = document.querySelector("model-viewer#blendViewer");
+const blendEffect = blendViewer.querySelector('color-grade-effect');
+const opacity = blendViewer.querySelector('#opacity');
+const mode = blendViewer.querySelector('#blend-mode');
+
+
+opacity.addEventListener('input', (e) => blendEffect.opacity = e.target.value);
+mode.addEventListener('change', (e) => blendEffect.blendMode = e.target.value);
+</script>
+            </template>
+          <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>model-viewer</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>blendViewer<span class="token punctuation">"</span></span> <span class="token attr-name">camera-controls</span> <span class="token attr-name">touch-action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pan-y<span class="token punctuation">"</span></span> <span class="token attr-name">ar</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../../shared-assets/models/Astronaut.glb<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>A 3D model of an astronaut<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>effect-composer</span> <span class="token attr-name">render-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>quality<span class="token punctuation">"</span></span> <span class="token attr-name">msaa</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>color-grade-effect</span> <span class="token attr-name">contrast</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0.5<span class="token punctuation">"</span></span> <span class="token attr-name">saturation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>-1<span class="token punctuation">"</span></span> <span class="token attr-name">opacity</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">blend-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>default<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-grade-effect</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>effect-composer</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>controls<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>opacity<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Opacity<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>opacity<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>range<span class="token punctuation">"</span></span> <span class="token attr-name">min</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">step</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0.01<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>blend-mode<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Blend Mode:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>blend-mode<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>default<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Default<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>skip<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Skip<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>add<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Add<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>subtract<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Subtract<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>divide<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Divide<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>negation<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Negation<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>model-viewer</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">const</span> blendViewer <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"model-viewer#blendViewer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> blendEffect <span class="token operator">=</span> blendViewer<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'color-grade-effect'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> opacity <span class="token operator">=</span> blendViewer<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#opacity'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> mode <span class="token operator">=</span> blendViewer<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#blend-mode'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+opacity<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'input'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> blendEffect<span class="token punctuation">.</span>opacity <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+mode<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'change'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> blendEffect<span class="token punctuation">.</span>blendMode <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></code></pre></example-snippet>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="sample">
+      <div id="colorgrade" class="demo">
+<model-viewer id="colorViewer" camera-controls="" touch-action="pan-y" ar="" src="../../shared-assets/models/EmissiveStrengthTest.glb" alt="A 3D model of an astronaut" ar-status="not-presenting">
+  <effect-composer render-mode="quality" msaa="8">
+    <bloom-effect blend-mode="DEFAULT" opacity="1" strength="1" threshold="0.85" radius="0.85" smoothing="0.025"></bloom-effect>
+    <color-grade-effect blend-mode="DEFAULT" opacity="1" tonemapping="ACES_FILMIC" brightness="0" contrast="0" saturation="0" hue="0"></color-grade-effect>
+  </effect-composer>
+  <div class="controls">
+    <label for="colorgrading">Color Grading</label>
+    <input type="checkbox" id="colorgrading" checked="">
+    <label for="tonemapping">Tonemapping:</label>
+    <select id="tonemapping">
+        <option value="aces_filmic">Aces Filmic</option>
+        <option value="reinhard">Reinhard</option>
+        <option value="reinhard2">Reinhard2</option>
+        <option value="reinhard2_adaptive">Reinhard2 Adaptive</option>
+        <option value="optimized_cineon">Optimized Cineon</option>
+    </select>
+  </div>
+</model-viewer>
+<script type="module">
+const colorViewer = document.querySelector("model-viewer#colorViewer");
+const colorGradeEffect = colorViewer.querySelector('color-grade-effect');
+const colorGrading = colorViewer.querySelector('#colorgrading');
+const tonemapping = colorViewer.querySelector('#tonemapping');
+
+
+colorGrading.addEventListener('change', (e) => colorGradeEffect.blendMode = e.target.checked ? 'default' : 'skip');
+tonemapping.addEventListener('input', (e) => colorGradeEffect.tonemapping = e.target.value);
+</script>
+            </div>
+      <div class="content">
+        <div class="wrapper">
+          <div class="heading">
+            <h2 class="demo-title">Color Grading</h2>
+            <p>The default <code>tonemapping</code> provided by <code>&lt;model-viewer&gt;</code> is <code>Aces Filmic</code> tonemapping,
+              which provides the most pleasing image, similar to Filament's gltf-viewer. However the this tonemapping is not applied to
+            <code>&lt;model-viewer-effects&gt;</code> postprocessing. To overcome this, it is recommended to always add the <code>&lt;color-grade-effect&gt;</code> 
+              at the end of your postprocess pipeline, which similarly sets the default tonemapping to <code>Aces Filmic</code>.<br>
+              The example below showcases the rendering difference with and without the <code>&lt;color-grade-effect&gt;</code> when &lt;bloom-effect&gt; is applied, as well as 
+              allows you to select any of the other tonemapping modes.
+            </p>
+          </div>
+          <example-snippet stamp-to="colorgrade" highlight-as="html">
+            <template>
+<model-viewer id="colorViewer" camera-controls="" touch-action="pan-y" ar="" src="../../shared-assets/models/EmissiveStrengthTest.glb" alt="A 3D model of an astronaut">
+  <effect-composer render-mode="quality" msaa="8">
+    <bloom-effect></bloom-effect>
+    <color-grade-effect></color-grade-effect>
+  </effect-composer>
+  <div class="controls">
+    <label for="colorgrading">Color Grading</label>
+    <input type="checkbox" id="colorgrading" checked="">
+    <label for="tonemapping">Tonemapping:</label>
+    <select id="tonemapping">
+        <option value="aces_filmic">Aces Filmic</option>
+        <option value="reinhard">Reinhard</option>
+        <option value="reinhard2">Reinhard2</option>
+        <option value="reinhard2_adaptive">Reinhard2 Adaptive</option>
+        <option value="optimized_cineon">Optimized Cineon</option>
+    </select>
+  </div>
+</model-viewer>
+<script type="module">
+const colorViewer = document.querySelector("model-viewer#colorViewer");
+const colorGradeEffect = colorViewer.querySelector('color-grade-effect');
+const colorGrading = colorViewer.querySelector('#colorgrading');
+const tonemapping = colorViewer.querySelector('#tonemapping');
+
+
+colorGrading.addEventListener('change', (e) => colorGradeEffect.blendMode = e.target.checked ? 'default' : 'skip');
+tonemapping.addEventListener('input', (e) => colorGradeEffect.tonemapping = e.target.value);
+</script>
+            </template>
+          <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>model-viewer</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>colorViewer<span class="token punctuation">"</span></span> <span class="token attr-name">camera-controls</span> <span class="token attr-name">touch-action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pan-y<span class="token punctuation">"</span></span> <span class="token attr-name">ar</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../../shared-assets/models/EmissiveStrengthTest.glb<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>A 3D model of an astronaut<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>effect-composer</span> <span class="token attr-name">render-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>quality<span class="token punctuation">"</span></span> <span class="token attr-name">msaa</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bloom-effect</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bloom-effect</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>color-grade-effect</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-grade-effect</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>effect-composer</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>controls<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>colorgrading<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Color Grading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>colorgrading<span class="token punctuation">"</span></span> <span class="token attr-name">checked</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tonemapping<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Tonemapping:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tonemapping<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>aces_filmic<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Aces Filmic<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>reinhard<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Reinhard<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>reinhard2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Reinhard2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>reinhard2_adaptive<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Reinhard2 Adaptive<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>optimized_cineon<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Optimized Cineon<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>model-viewer</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">const</span> colorViewer <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"model-viewer#colorViewer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> colorGradeEffect <span class="token operator">=</span> colorViewer<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'color-grade-effect'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> colorGrading <span class="token operator">=</span> colorViewer<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#colorgrading'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> tonemapping <span class="token operator">=</span> colorViewer<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#tonemapping'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+colorGrading<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'change'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> colorGradeEffect<span class="token punctuation">.</span>blendMode <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>checked <span class="token operator">?</span> <span class="token string">'default'</span> <span class="token operator">:</span> <span class="token string">'skip'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+tonemapping<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'input'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> colorGradeEffect<span class="token punctuation">.</span>tonemapping <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></code></pre></example-snippet>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="sample">
+      <div id="selective-effects" class="demo">
+<model-viewer camera-orbit="45deg 115deg auto" camera-controls="" touch-action="pan-y" autoplay="" src="../../shared-assets/models/RocketShip.glb" ar="" alt="A 3D model of a Rocket Ship" ar-status="not-presenting">
+  <effect-composer id="selectiveComposer" render-mode="quality">
+    <selective-bloom-effect strength="5" radius="0.7" threshold="0" blend-mode="DEFAULT" opacity="1" smoothing="0.025"></selective-bloom-effect>
+    <color-grade-effect blend-mode="DEFAULT" opacity="1" tonemapping="ACES_FILMIC" brightness="0" contrast="0" saturation="0" hue="0"></color-grade-effect>
+  </effect-composer>
+</model-viewer>
+<script type="module">
+  const selectiveComposer = document.querySelector("effect-composer#selectiveComposer");
+  const selectiveBloom = selectiveComposer.querySelector("selective-bloom-effect");
+
+
+  selectiveComposer.addEventListener('updated-selection', () => {
+    const selection = [];
+    selectiveComposer.selection.forEach((obj) => 
+      (obj.material.emissive.r > 0 
+      || obj.material.emissive.g > 0 
+      || obj.material.emissive.b > 0) &&
+        selection.push(obj)
+    );
+    selectiveBloom.selection = selection;
+  });
+</script>
+            </div>
+      <div class="content">
+        <div class="wrapper">
+          <div class="heading">
+            <h2 class="demo-title">Selective Effects</h2>
+            <p>Some of the implemented effects are selective and may be applied to only certain meshes in your model. 
+            Currently, this is exclusive to <a href="../../docs/mve#selectivebloom"><code>&lt;selective-bloom-effect&gt;</code></a> 
+            and <a href="../../docs/mve#outline"><code>&lt;outline-effect&gt;</code></a>. The default behavior for selective
+            effects is to use the default <code>selection</code> provided by the <code>&lt;effect-composer&gt;</code>, which contains a set of
+            all meshes in the model.<br>
+            By providing an array of mesh names to the <code>selection</code> attribute, you may enable the effects only for those meshes.<br>
+            This example demonstrates the application of the <code>&lt;selective-bloom-effect&gt;</code> exclusively to Meshes with an emissive material:</p>
+          </div>
+          <example-snippet stamp-to="selective-effects" highlight-as="html">
+            <template>
+<model-viewer camera-orbit="45deg 115deg auto" camera-controls="" touch-action="pan-y" autoplay="" src="../../shared-assets/models/RocketShip.glb" ar="" alt="A 3D model of a Rocket Ship">
+  <effect-composer id="selectiveComposer" render-mode="quality">
+    <selective-bloom-effect strength="5" radius="0.7" threshold="0"></selective-bloom-effect>
+    <color-grade-effect></color-grade-effect>
+  </effect-composer>
+</model-viewer>
+<script type="module">
+  const selectiveComposer = document.querySelector("effect-composer#selectiveComposer");
+  const selectiveBloom = selectiveComposer.querySelector("selective-bloom-effect");
+
+
+  selectiveComposer.addEventListener('updated-selection', () => {
+    const selection = [];
+    selectiveComposer.selection.forEach((obj) => 
+      (obj.material.emissive.r > 0 
+      || obj.material.emissive.g > 0 
+      || obj.material.emissive.b > 0) &&
+        selection.push(obj)
+    );
+    selectiveBloom.selection = selection;
+  });
+</script>
+            </template>
+          <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>model-viewer</span> <span class="token attr-name">camera-orbit</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>45deg 115deg auto<span class="token punctuation">"</span></span> <span class="token attr-name">camera-controls</span> <span class="token attr-name">touch-action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pan-y<span class="token punctuation">"</span></span> <span class="token attr-name">autoplay</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../../shared-assets/models/RocketShip.glb<span class="token punctuation">"</span></span> <span class="token attr-name">ar</span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>A 3D model of a Rocket Ship<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>effect-composer</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>selectiveComposer<span class="token punctuation">"</span></span> <span class="token attr-name">render-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>quality<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>selective-bloom-effect</span> <span class="token attr-name">strength</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>5<span class="token punctuation">"</span></span> <span class="token attr-name">radius</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0.7<span class="token punctuation">"</span></span> <span class="token attr-name">threshold</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>selective-bloom-effect</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>color-grade-effect</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-grade-effect</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>effect-composer</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>model-viewer</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">const</span> selectiveComposer <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"effect-composer#selectiveComposer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> selectiveBloom <span class="token operator">=</span> selectiveComposer<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"selective-bloom-effect"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+  selectiveComposer<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'updated-selection'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> selection <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    selectiveComposer<span class="token punctuation">.</span>selection<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> 
+      <span class="token punctuation">(</span>obj<span class="token punctuation">.</span>material<span class="token punctuation">.</span>emissive<span class="token punctuation">.</span>r <span class="token operator">&gt;</span> <span class="token number">0</span> 
+      <span class="token operator">||</span> obj<span class="token punctuation">.</span>material<span class="token punctuation">.</span>emissive<span class="token punctuation">.</span>g <span class="token operator">&gt;</span> <span class="token number">0</span> 
+      <span class="token operator">||</span> obj<span class="token punctuation">.</span>material<span class="token punctuation">.</span>emissive<span class="token punctuation">.</span>b <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+        selection<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    selectiveBloom<span class="token punctuation">.</span>selection <span class="token operator">=</span> selection<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></code></pre></example-snippet>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="sample">
+      <div id="combining-effects" class="demo">
+<model-viewer id="effectsViewer" camera-controls="" touch-action="pan-y" src="../../shared-assets/models/EmissiveStrengthTest.glb" ar="" alt="A 3D " ar-status="not-presenting">
+  <effect-composer render-mode="quality">
+    <outline-effect color="blue" blend-mode="SKIP" opacity="1" strength="1" smoothing="1"></outline-effect>
+    <ssao-effect blend-mode="SKIP" opacity="1" strength="2"></ssao-effect>
+    <glitch-effect blend-mode="SKIP" opacity="1" strength="0.5" mode="sporadic"></glitch-effect>
+    <smaa-effect blend-mode="SKIP" opacity="1" quality="MEDIUM"></smaa-effect>
+    <bloom-effect blend-mode="SKIP" opacity="1" strength="1" threshold="0.85" radius="0.85" smoothing="0.025"></bloom-effect>
+    <pixelate-effect granularity="5" blend-mode="SKIP" opacity="1"></pixelate-effect>
+    <color-grade-effect blend-mode="DEFAULT" opacity="1" tonemapping="ACES_FILMIC" brightness="0" contrast="0" saturation="0" hue="0"></color-grade-effect>
+  </effect-composer>
+  <div class="controls">
+    <label for="outline">Outline Effect</label>
+    <input type="checkbox" id="outline">
+    <label for="ssao">SSAO Effect</label>
+    <input type="checkbox" id="ssao">
+    <label for="glitch">Glitch Effect</label>
+    <input type="checkbox" id="glitch">
+    <label for="smaa">SMAA Effect</label>
+    <input type="checkbox" id="smaa">
+    <label for="bloom">Bloom Effect</label>
+    <input type="checkbox" id="bloom">
+    <label for="pixelate">Pixelate Effect</label>
+    <input type="checkbox" id="pixelate">
+    <label for="colorgrade">Color Grade Effect</label>
+    <input type="checkbox" id="colorgrade" checked="">
+  </div>
+</model-viewer>
+<script type="module">
+  const effectsViewer = document.querySelector("model-viewer#effectsViewer");
+  const effects = effectsViewer.querySelector("effect-composer").children;
+  const inputs = effectsViewer.querySelectorAll("input");
+
+
+  for (let i = 0; i < effects.length; i++) {
+    inputs[i].addEventListener('change', (e) => effects[i].blendMode = e.target.checked ? 'default' : 'skip');
+  }
+</script>
+            </div>
+      <div class="content">
+        <div class="wrapper">
+          <div class="heading">
+            <h2 class="demo-title">Combining Effects</h2>
+            <p>&lt;model-viewer-effects&gt; will attempt to join as many of your effects as possible into a single
+            <code>EffectPass</code>, which has a significant performance benefit as opposed to keeping all the effects
+            in separates Passes. Effects can be disabled by setting the <code>blend-mode</code> to <code>skip</code>.
+            <br>
+            It is recommended to follow the official <a href="https://github.com/pmndrs/postprocessing/wiki/Effect-Merging#effect-execution-order" target="_blank">Postprocessing Wiki</a>
+            for best practices in combining effects. The <code>&lt;model-viewer-effects&gt;</code> handles effect compatibility issues by 
+            placing incompatible effects in a separate Pass.
+            </p>
+          </div>
+          <example-snippet stamp-to="combining-effects" highlight-as="html">
+            <template>
+<model-viewer id="effectsViewer" camera-controls="" touch-action="pan-y" src="../../shared-assets/models/EmissiveStrengthTest.glb" ar="" alt="A 3D ">
+  <effect-composer render-mode="quality">
+    <outline-effect color="blue" blend-mode="skip"></outline-effect>
+    <ssao-effect blend-mode="skip"></ssao-effect>
+    <glitch-effect blend-mode="skip"></glitch-effect>
+    <smaa-effect blend-mode="skip"></smaa-effect>
+    <bloom-effect blend-mode="skip"></bloom-effect>
+    <pixelate-effect granularity="5" blend-mode="skip"></pixelate-effect>
+    <color-grade-effect blend-mode="default"></color-grade-effect>
+  </effect-composer>
+  <div class="controls">
+    <label for="outline">Outline Effect</label>
+    <input type="checkbox" id="outline">
+    <label for="ssao">SSAO Effect</label>
+    <input type="checkbox" id="ssao">
+    <label for="glitch">Glitch Effect</label>
+    <input type="checkbox" id="glitch">
+    <label for="smaa">SMAA Effect</label>
+    <input type="checkbox" id="smaa">
+    <label for="bloom">Bloom Effect</label>
+    <input type="checkbox" id="bloom">
+    <label for="pixelate">Pixelate Effect</label>
+    <input type="checkbox" id="pixelate">
+    <label for="colorgrade">Color Grade Effect</label>
+    <input type="checkbox" id="colorgrade" checked="">
+  </div>
+</model-viewer>
+<script type="module">
+  const effectsViewer = document.querySelector("model-viewer#effectsViewer");
+  const effects = effectsViewer.querySelector("effect-composer").children;
+  const inputs = effectsViewer.querySelectorAll("input");
+
+
+  for (let i = 0; i < effects.length; i++) {
+    inputs[i].addEventListener('change', (e) => effects[i].blendMode = e.target.checked ? 'default' : 'skip');
+  }
+</script>
+            </template>
+          <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>model-viewer</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>effectsViewer<span class="token punctuation">"</span></span> <span class="token attr-name">camera-controls</span> <span class="token attr-name">touch-action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pan-y<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../../shared-assets/models/EmissiveStrengthTest.glb<span class="token punctuation">"</span></span> <span class="token attr-name">ar</span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>A 3D <span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>effect-composer</span> <span class="token attr-name">render-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>quality<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>outline-effect</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>blue<span class="token punctuation">"</span></span> <span class="token attr-name">blend-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>skip<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>outline-effect</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ssao-effect</span> <span class="token attr-name">blend-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>skip<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ssao-effect</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>glitch-effect</span> <span class="token attr-name">blend-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>skip<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>glitch-effect</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>smaa-effect</span> <span class="token attr-name">blend-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>skip<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>smaa-effect</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bloom-effect</span> <span class="token attr-name">blend-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>skip<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bloom-effect</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pixelate-effect</span> <span class="token attr-name">granularity</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>5<span class="token punctuation">"</span></span> <span class="token attr-name">blend-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>skip<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pixelate-effect</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>color-grade-effect</span> <span class="token attr-name">blend-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>default<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-grade-effect</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>effect-composer</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>controls<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>outline<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Outline Effect<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>outline<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ssao<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>SSAO Effect<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ssao<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>glitch<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Glitch Effect<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>glitch<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>smaa<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>SMAA Effect<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>smaa<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bloom<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Bloom Effect<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bloom<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pixelate<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Pixelate Effect<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pixelate<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>colorgrade<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Color Grade Effect<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>colorgrade<span class="token punctuation">"</span></span> <span class="token attr-name">checked</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>model-viewer</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">const</span> effectsViewer <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"model-viewer#effectsViewer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> effects <span class="token operator">=</span> effectsViewer<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"effect-composer"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>children<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> inputs <span class="token operator">=</span> effectsViewer<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">"input"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> effects<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    inputs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'change'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> effects<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>blendMode <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>checked <span class="token operator">?</span> <span class="token string">'default'</span> <span class="token operator">:</span> <span class="token string">'skip'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></code></pre></example-snippet>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="sample">
+      <div id="custom-effects" class="demo">
+<model-viewer camera-controls="" touch-action="pan-y" autoplay="" src="../../shared-assets/models/RobotExpressive.glb" ar="" alt="A 3D model of a Lantern" ar-status="not-presenting">
+  <effect-composer id="customComposer" msaa="8">
+  </effect-composer>
+  <div class="controls">
+    <label for="scale">Grid Scale</label>
+    <input id="scale" type="range" min="0" max="2" step="0.01" value="1">
+  </div>
+</model-viewer>
+<script type="module">
+  import * as PostProcessing from 'https://cdn.jsdelivr.net/npm/postprocessing@6.30.1/build/postprocessing.esm.js';
+  const customComposer = document.querySelector("effect-composer#customComposer");
+
+
+  const grid = new PostProcessing.GridEffect();
+  const sepia = new PostProcessing.SepiaEffect();
+  // The camera is set automatically when added to the <effect-composer>
+  const noisePass = new PostProcessing.EffectPass(undefined, grid, sepia);
+  customComposer.addPass(noisePass);
+
+
+  customComposer.nextElementSibling.addEventListener('input', (e) => {
+    grid.scale = e.target.value;
+    // Request a render frame, to update
+    customComposer.queueRender();
+  });
+</script>
+            </div>
+      <div class="content">
+        <div class="wrapper">
+          <div class="heading">
+            <h2 class="demo-title">Custom Effects</h2>
+            <p>Using the <a href="../../docs/mve.html#entrydocs-effectcomposer-methods-addPass"><code>addPass()</code></a> method on the <code>&lt;effect-composer&gt;</code>, you can add custom 
+            PostProcessing effects that are not provided by the base library. If you would like to implement
+            your own effects from scratch, refer to the <a href="https://github.com/pmndrs/postprocessing/wiki/Custom-Effects" target="_blank">Postprocessing Wiki</a>.<br><br>
+            
+            If your Pass requires the scene or camera instance, they are set automatically. Similarly, 
+            if any of the effects in the pass require a <code>normalBuffer</code> or <code>selection</code>,
+            you can access them from the <code>&lt;effect-composer&gt;</code>.<br>
+
+
+            If any property of your effect changes, you must call the <a href="../../docs/mve.html#entrydocs-effectcomposer-methods-queueRender"><code>queueRender()</code></a> 
+            method so that the <code>&lt;effect-composer&gt;</code> knows to re-render with your new changes.<br><br> 
+
+
+            <i>Note: If your pass uses the normalBuffer, you must specify as such in the <code>addPass</code> method, as the normals 
+            are disabled by default unless they are used. Similarly, if your pass requires to be re-rendered each frame, 
+            you must pass the </i><code>requireDirtyRender</code><i> parameter.</i></p>
+          </div>
+          <example-snippet stamp-to="custom-effects" highlight-as="html">
+            <template>
+<model-viewer camera-controls="" touch-action="pan-y" autoplay="" src="../../shared-assets/models/RobotExpressive.glb" ar="" alt="A 3D model of a Lantern">
+  <effect-composer id="customComposer" msaa="8">
+  </effect-composer>
+  <div class="controls">
+    <label for="scale">Grid Scale</label>
+    <input id="scale" type="range" min="0" max="2" step="0.01" value="1">
+  </div>
+</model-viewer>
+<script type="module">
+  import * as PostProcessing from 'https://cdn.jsdelivr.net/npm/postprocessing@6.30.1/build/postprocessing.esm.js';
+  const customComposer = document.querySelector("effect-composer#customComposer");
+
+
+  const grid = new PostProcessing.GridEffect();
+  const sepia = new PostProcessing.SepiaEffect();
+  // The camera is set automatically when added to the <effect-composer>
+  const noisePass = new PostProcessing.EffectPass(undefined, grid, sepia);
+  customComposer.addPass(noisePass);
+
+
+  customComposer.nextElementSibling.addEventListener('input', (e) => {
+    grid.scale = e.target.value;
+    // Request a render frame, to update
+    customComposer.queueRender();
+  });
+</script>
+            </template>
+          <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>model-viewer</span> <span class="token attr-name">camera-controls</span> <span class="token attr-name">touch-action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pan-y<span class="token punctuation">"</span></span> <span class="token attr-name">autoplay</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../../shared-assets/models/RobotExpressive.glb<span class="token punctuation">"</span></span> <span class="token attr-name">ar</span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>A 3D model of a Lantern<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>effect-composer</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>customComposer<span class="token punctuation">"</span></span> <span class="token attr-name">msaa</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>effect-composer</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>controls<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>scale<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Grid Scale<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>scale<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>range<span class="token punctuation">"</span></span> <span class="token attr-name">min</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span> <span class="token attr-name">step</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0.01<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>model-viewer</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> PostProcessing <span class="token keyword">from</span> <span class="token string">'https://cdn.jsdelivr.net/npm/postprocessing@6.30.1/build/postprocessing.esm.js'</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> customComposer <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"effect-composer#customComposer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+  <span class="token keyword">const</span> grid <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PostProcessing<span class="token punctuation">.</span>GridEffect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> sepia <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PostProcessing<span class="token punctuation">.</span>SepiaEffect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// The camera is set automatically when added to the &lt;effect-composer&gt;</span>
+  <span class="token keyword">const</span> noisePass <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PostProcessing<span class="token punctuation">.</span>EffectPass</span><span class="token punctuation">(</span><span class="token keyword">undefined</span><span class="token punctuation">,</span> grid<span class="token punctuation">,</span> sepia<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  customComposer<span class="token punctuation">.</span><span class="token function">addPass</span><span class="token punctuation">(</span>noisePass<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+  customComposer<span class="token punctuation">.</span>nextElementSibling<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'input'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    grid<span class="token punctuation">.</span>scale <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+    <span class="token comment">// Request a render frame, to update</span>
+    customComposer<span class="token punctuation">.</span><span class="token function">queueRender</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></code></pre></example-snippet>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="footer">
+      <ul>
+        <li class="attribution">
+          <a href="https://github.com/dataarts/3-dreams-of-black/tree/master/deploy/files/models/soup">Horse</a> by <a href="https://github.com/dataarts">Google Data Arts Team</a>,
+          licensed under <a href="https://github.com/dataarts/3-dreams-of-black/blob/master/deploy/files/models/soup/LICENSE.txt">Creative Commons Attribution-NonCommercial-ShareAlike</a>.
+        </li>
+        <li class="attribution">
+          <a href="https://poly.google.com/view/dLHpzNdygsg">Astronaut</a> by <a href="https://poly.google.com/user/4aEd8rQgKu2">Poly</a>,
+          licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC-BY</a>.
+        </li>
+        <li class="attribution">
+          <a href="https://poly.pizza/m/9dyJn4gp7U8">Rocket Ship</a> by <a href="https://poly.google.com/user/4aEd8rQgKu2">Daniel Melchior</a>,
+          licensed under <a href="https://creativecommons.org/licenses/by/3.0/">CC-BY</a>.
+        </li>
+        <li class="attribution">
+          <a href="https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0/EmissiveStrengthTest">EmissiveStrengthTest</a> by <a href="https://github.com/emackey">Ed Mackey</a>,
+          licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>.
+        </li>
+        <li class="attribution">
+          <a href="https://github.com/mrdoob/three.js/tree/dev/examples/models/gltf/RobotExpressive">RobotExpressive</a> by <a href="https://www.patreon.com/quaternius">Tomás Laulhé</a>,
+          licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>.
+        </li>
+      </ul>
+      <div style="margin-top:24px;" class="copyright">©Copyright 2023 Google Inc. Licensed under the Apache License 2.0.</div>
+      <div id="footer-links">
+<div>
+  <a href="https://github.com/google/model-viewer">Github</a> ∙ <a href="https://model-viewer.glitch.me/">Glitch</a> ∙ <a href="https://github.com/google/model-viewer/issues">Bug report</a> ∙ <a href="https://policies.google.com/privacy">Privacy</a>
+</div></div>
+    </div>
+  </div>
+</div>
+
+
+  <script type="module" src="../../examples/built/docs-and-examples.js">
+  </script>
+  <script type="module">
+    (() => { init('examples-postprocessing'); })();
+    (() => { initFooterLinks();})();
+  </script>
+
+
+  <!-- Documentation-specific dependencies: -->
+  <script type="module" src="../built/dependencies.js">
+  </script>
+
+</body></html>
