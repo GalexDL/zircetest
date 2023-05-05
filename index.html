@@ -251,14 +251,7 @@ button {
             <a href="../../docs/mve.html">API Reference</a> for a list of all supported effects.</p>
           </div>
           <example-snippet stamp-to="setup" highlight-as="html">
-            <template>
-<!-- Use the <effect-composer> component inside the <model-viewer> element -->
-<model-viewer autoplay="" ar="" camera-controls="" touch-action="pan-y" src="costume_party_style_zoroark.glb" alt="A 3D model of a horse galloping.">
-  <effect-composer>
-    <pixelate-effect></pixelate-effect>
-  </effect-composer>
-</model-viewer>
-            </template>
+
           <pre><code><span class="token comment">&lt;!-- Use the &lt;effect-composer&gt; component inside the &lt;model-viewer&gt; element --&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>model-viewer</span> <span class="token attr-name">autoplay</span> <span class="token attr-name">ar</span> <span class="token attr-name">camera-controls</span> <span class="token attr-name">touch-action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pan-y<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../../shared-assets/models/Horse.glb<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>A 3D model of a horse galloping.<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>effect-composer</span><span class="token punctuation">&gt;</span></span>
@@ -325,36 +318,7 @@ mode.addEventListener('change', (e) => blendEffect.blendMode = e.target.value);
             </p>
           </div>
           <example-snippet stamp-to="effects" highlight-as="html">
-            <template>
-<model-viewer id="blendViewer" camera-controls="" touch-action="pan-y" ar="" src="costume_party_style_zoroark.glb" alt="A 3D model of an astronaut">
-  <effect-composer render-mode="quality" msaa="8">
-    <color-grade-effect contrast="0.5" saturation="-1" opacity="1" blend-mode="default"></color-grade-effect>
-  </effect-composer>
-  <div class="controls">
-    <label for="opacity">Opacity</label>
-    <input id="opacity" type="range" min="0" max="1" step="0.01" value="1">
-    <label for="blend-mode">Blend Mode:</label>
-    <select id="blend-mode">
-        <option value="default">Default</option>
-        <option value="skip">Skip</option>
-        <option value="add">Add</option>
-        <option value="subtract">Subtract</option>
-        <option value="divide">Divide</option>
-        <option value="negation">Negation</option>
-    </select>
-  </div>
-</model-viewer>
-<script type="module">
-const blendViewer = document.querySelector("model-viewer#blendViewer");
-const blendEffect = blendViewer.querySelector('color-grade-effect');
-const opacity = blendViewer.querySelector('#opacity');
-const mode = blendViewer.querySelector('#blend-mode');
 
-
-opacity.addEventListener('input', (e) => blendEffect.opacity = e.target.value);
-mode.addEventListener('change', (e) => blendEffect.blendMode = e.target.value);
-</script>
-            </template>
           <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>model-viewer</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>blendViewer<span class="token punctuation">"</span></span> <span class="token attr-name">camera-controls</span> <span class="token attr-name">touch-action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pan-y<span class="token punctuation">"</span></span> <span class="token attr-name">ar</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../../shared-assets/models/Astronaut.glb<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>A 3D model of an astronaut<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>effect-composer</span> <span class="token attr-name">render-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>quality<span class="token punctuation">"</span></span> <span class="token attr-name">msaa</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>color-grade-effect</span> <span class="token attr-name">contrast</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0.5<span class="token punctuation">"</span></span> <span class="token attr-name">saturation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>-1<span class="token punctuation">"</span></span> <span class="token attr-name">opacity</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">blend-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>default<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-grade-effect</span><span class="token punctuation">&gt;</span></span>
@@ -434,36 +398,7 @@ tonemapping.addEventListener('input', (e) => colorGradeEffect.tonemapping = e.ta
             </p>
           </div>
           <example-snippet stamp-to="colorgrade" highlight-as="html">
-            <template>
-<model-viewer id="colorViewer" camera-controls="" touch-action="pan-y" ar="" src="costume_party_style_zoroark.glb" alt="A 3D model of an astronaut">
-  <effect-composer render-mode="quality" msaa="8">
-    <bloom-effect></bloom-effect>
-    <color-grade-effect></color-grade-effect>
-  </effect-composer>
-  <div class="controls">
-    <label for="colorgrading">Color Grading</label>
-    <input type="checkbox" id="colorgrading" checked="">
-    <label for="tonemapping">Tonemapping:</label>
-    <select id="tonemapping">
-        <option value="aces_filmic">Aces Filmic</option>
-        <option value="reinhard">Reinhard</option>
-        <option value="reinhard2">Reinhard2</option>
-        <option value="reinhard2_adaptive">Reinhard2 Adaptive</option>
-        <option value="optimized_cineon">Optimized Cineon</option>
-    </select>
-  </div>
-</model-viewer>
-<script type="module">
-const colorViewer = document.querySelector("model-viewer#colorViewer");
-const colorGradeEffect = colorViewer.querySelector('color-grade-effect');
-const colorGrading = colorViewer.querySelector('#colorgrading');
-const tonemapping = colorViewer.querySelector('#tonemapping');
 
-
-colorGrading.addEventListener('change', (e) => colorGradeEffect.blendMode = e.target.checked ? 'default' : 'skip');
-tonemapping.addEventListener('input', (e) => colorGradeEffect.tonemapping = e.target.value);
-</script>
-            </template>
           <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>model-viewer</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>colorViewer<span class="token punctuation">"</span></span> <span class="token attr-name">camera-controls</span> <span class="token attr-name">touch-action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pan-y<span class="token punctuation">"</span></span> <span class="token attr-name">ar</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../../shared-assets/models/EmissiveStrengthTest.glb<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>A 3D model of an astronaut<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>effect-composer</span> <span class="token attr-name">render-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>quality<span class="token punctuation">"</span></span> <span class="token attr-name">msaa</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bloom-effect</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bloom-effect</span><span class="token punctuation">&gt;</span></span>
@@ -535,30 +470,7 @@ tonemapping<span class="token punctuation">.</span><span class="token function">
             This example demonstrates the application of the <code>&lt;selective-bloom-effect&gt;</code> exclusively to Meshes with an emissive material:</p>
           </div>
           <example-snippet stamp-to="selective-effects" highlight-as="html">
-            <template>
-<model-viewer camera-orbit="45deg 115deg auto" camera-controls="" touch-action="pan-y" autoplay="" src="costume_party_style_zoroark.glb" ar="" alt="A 3D model of a Rocket Ship">
-  <effect-composer id="selectiveComposer" render-mode="quality">
-    <selective-bloom-effect strength="5" radius="0.7" threshold="0"></selective-bloom-effect>
-    <color-grade-effect></color-grade-effect>
-  </effect-composer>
-</model-viewer>
-<script type="module">
-  const selectiveComposer = document.querySelector("effect-composer#selectiveComposer");
-  const selectiveBloom = selectiveComposer.querySelector("selective-bloom-effect");
 
-
-  selectiveComposer.addEventListener('updated-selection', () => {
-    const selection = [];
-    selectiveComposer.selection.forEach((obj) => 
-      (obj.material.emissive.r > 0 
-      || obj.material.emissive.g > 0 
-      || obj.material.emissive.b > 0) &&
-        selection.push(obj)
-    );
-    selectiveBloom.selection = selection;
-  });
-</script>
-            </template>
           <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>model-viewer</span> <span class="token attr-name">camera-orbit</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>45deg 115deg auto<span class="token punctuation">"</span></span> <span class="token attr-name">camera-controls</span> <span class="token attr-name">touch-action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pan-y<span class="token punctuation">"</span></span> <span class="token attr-name">autoplay</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../../shared-assets/models/RocketShip.glb<span class="token punctuation">"</span></span> <span class="token attr-name">ar</span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>A 3D model of a Rocket Ship<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>effect-composer</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>selectiveComposer<span class="token punctuation">"</span></span> <span class="token attr-name">render-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>quality<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>selective-bloom-effect</span> <span class="token attr-name">strength</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>5<span class="token punctuation">"</span></span> <span class="token attr-name">radius</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0.7<span class="token punctuation">"</span></span> <span class="token attr-name">threshold</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>selective-bloom-effect</span><span class="token punctuation">&gt;</span></span>
